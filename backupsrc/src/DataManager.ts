@@ -2,11 +2,11 @@ import * as path from 'path';
 import * as  fs from 'fs';
 import { JArray, JObject, JToken, UtilFT, UtilFunc } from '@zwa73/utils';
 import { StaticDataMap } from 'StaticData';
-import { Eoc,MutationID,ItemGroupID,NpcClassID,NpcInstanceID,FlagID, ArmorID, GunID, EnchantmentID, GenericID, SoundEffect, SoundEffectVariantID, SoundEffectID, AnyCddaJson, AnyItemID, BoolObj, TalkTopicID, Resp, EocEffect } from 'cdda-schema';
+import { Eoc,MutationID,ItemGroupID,NpcClassID,NpcInstanceID,FlagID, ArmorID, GunID, EnchantmentID, GenericID, SoundEffect, SoundEffectVariantID, SoundEffectID, AnyCddaJson, AnyItemID, BoolObj, TalkTopicID, Resp, EocEffect } from '@sosarciel-cdda/schema';
 import { CharConfig, loadCharConfig, AnimType, AnimTypeList, formatAnimName } from 'CharBuild';
 import { CCharHookList, CCharHook, EventEffect, CGlobalHook, CGlobalHookList, buildEventFrame } from "CnpcEvent";
 import { CMDef } from 'CMDefine';
-import { DataManager } from 'cdda-event';
+import { DataManager } from '@sosarciel-cdda/event';
 
 
 /**角色定义数据 */

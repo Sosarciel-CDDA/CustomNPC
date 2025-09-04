@@ -2,9 +2,9 @@ import * as path from 'path';
 import * as  fs from 'fs';
 import { JObject, JToken, UtilFT, UtilFunc } from '@zwa73/utils';
 import { StaticDataMap } from 'StaticData';
-import { Eoc, AnyCddaJson, EocEffect } from 'cdda-schema';
+import { Eoc, AnyCddaJson, EocEffect } from '@sosarciel-cdda/schema';
 import { CHARS_PATH, DATA_PATH, OUT_PATH, getCharOutPath, getCharOutPathAbs, getCharPath } from 'CMDefine';
-import { CharHook, DataManager } from 'cdda-event';
+import { CharHook, DataManager } from '@sosarciel-cdda/event';
 import { getCharMutId } from './CharBuild/UtilGener';
 
 
