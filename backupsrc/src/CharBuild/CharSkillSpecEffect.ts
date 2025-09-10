@@ -85,7 +85,7 @@ function processAddEffect(dm:CDataManager,charName:string,baseSkillData:SpecSkil
 
     const addEoc:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(mainid),
+        id:CMDef.genEocID(mainid),
         eoc_type:"ACTIVATION",
         effect:[
             spec.is_stack==true
@@ -127,7 +127,7 @@ function processRunEoc(dm:CDataManager,charName:string,baseSkillData:SpecSkillCa
 
     const runEoc:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(mainid),
+        id:CMDef.genEocID(mainid),
         eoc_type:"ACTIVATION",
         effect:[]
     }
@@ -135,7 +135,7 @@ function processRunEoc(dm:CDataManager,charName:string,baseSkillData:SpecSkillCa
         runEoc.effect?.push({run_eocs:spec.eoc});
     if(spec.effect!=undefined){
         let inline:InlineEoc={
-            id:CMDef.genEOCID(`${mainid}_inline`),
+            id:CMDef.genEocID(`${mainid}_inline`),
             eoc_type:"ACTIVATION",
             effect:spec.effect,
         }

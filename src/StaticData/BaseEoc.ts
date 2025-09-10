@@ -11,7 +11,7 @@ import { BATTLE_RANGE, MELEE_RANGE } from "./BaseSpell";
 const InitVar:Eoc={
     type:"effect_on_condition",
     eoc_type:"ACTIVATION",
-    id:CMDef.genEOCID("InitVar"),
+    id:CMDef.genEocID("InitVar"),
     effect:[
         {math:[`BATTLE_RANGE`,"=",`${BATTLE_RANGE}`]},
         {math:[`MELEE_RANGE` ,"=",`${MELEE_RANGE}` ]},
@@ -19,7 +19,7 @@ const InitVar:Eoc={
 }
 
 /**完全回复EOC */
-export const FULL_RECIVERY_EOCID = CMDef.genEOCID("FullRecovery");
+export const FULL_RECIVERY_EOCID = CMDef.genEocID("FullRecovery");
 /**完全回复 */
 const FullRecivery: Eoc = {
     type: "effect_on_condition",

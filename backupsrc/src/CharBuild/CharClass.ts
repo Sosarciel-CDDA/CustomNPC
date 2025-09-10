@@ -73,7 +73,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
             type:"effect_on_conditions",
             description:`生成一个 ${displayName}`,
             menu_text: `生成一个 ${displayName}`,
-            effect_on_conditions:[CMDef.genEOCID(spawnerId)],
+            effect_on_conditions:[CMDef.genEocID(spawnerId)],
         },
         weight:1,
         volume:1,
@@ -83,7 +83,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charSpawnerEoc: Eoc = {
         type: "effect_on_condition",
         eoc_type:"ACTIVATION",
-        id: CMDef.genEOCID(spawnerId),
+        id: CMDef.genEocID(spawnerId),
         effect: [
             //{ u_consume_item: CMDef.genGenericID(spawnerId), count: 1 },
             {math:[`${charName}_uid`,"+=","1"]},
@@ -102,7 +102,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charCardEoc: Eoc = {
         type: "effect_on_condition",
         eoc_type:"ACTIVATION",
-        id: CMDef.genEOCID(`${charName}_Card_Eoc`),
+        id: CMDef.genEocID(`${charName}_Card_Eoc`),
         effect: [
             {u_add_var:cardcdvar,time:true},
             {math:[`${charName}_uid`,"+=","1"]},
@@ -141,7 +141,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     /**自动保存事件 */
     const autoSave:Eoc = {
         type:"effect_on_condition",
-        id:CMDef.genEOCID(`${charName}_SaveProcess`),
+        id:CMDef.genEocID(`${charName}_SaveProcess`),
         eoc_type:"ACTIVATION",
         effect:[
             ...DefineSkillList.map(item=>{
@@ -157,7 +157,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charInitEoc:Eoc = {
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:CMDef.genEOCID(`${charName}_InitProcess`),
+        id:CMDef.genEocID(`${charName}_InitProcess`),
         effect:[
             {math:[`u_uid`,"=",`${charName}_uid`]},
             ...DefineSkillList.map(item=>{
@@ -172,7 +172,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charRemoveEoc:Eoc = {
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:CMDef.genEOCID(`${charName}_RemoveProcess`),
+        id:CMDef.genEocID(`${charName}_RemoveProcess`),
         effect:[
             {run_eocs:"CNPC_EOC_CnpcDeathProcess"}
         ],

@@ -67,7 +67,7 @@ const charEventEocs = CharEvemtTypeList.reduce((acc,etype)=>{
     const subEoc:Eoc={
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:genEOCID(`${charName}_${etype}`),
+        id:genEocID(`${charName}_${etype}`),
         effect:[],
         condition:{u_has_trait:baseData.baseMutID}
     }
@@ -80,7 +80,7 @@ const reverseCharEventEocs = ReverseCharEvemtTypeList.reduce((acc,etype)=>{
     const subEoc:Eoc={
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:genEOCID(`${charName}_${etype}`),
+        id:genEocID(`${charName}_${etype}`),
         effect:[],
         condition:{npc_has_trait:baseData.baseMutID}
     }
@@ -93,7 +93,7 @@ eventEocs:GlobalEvemtTypeList.reduce((acc,item)=>{
     const subEoc:Eoc={
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:genEOCID(item),
+        id:genEocID(item),
         effect:[],
     }
     return {

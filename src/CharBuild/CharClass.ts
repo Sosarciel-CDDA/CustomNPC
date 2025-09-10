@@ -67,7 +67,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charInitEoc:Eoc = {
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:CMDef.genEOCID(`${charName}_InitProcess`),
+        id:CMDef.genEocID(`${charName}_InitProcess`),
         effect:[
             {if:{math:[`${charName}_hasInstance`,"==","1"]},
             then:[{math:["u_needRemove","=","1"]}]},
@@ -80,7 +80,7 @@ export async function createCharClass(dm:CDataManager,charName:string){
     const charRemoveEoc:Eoc = {
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
-        id:CMDef.genEOCID(`${charName}_RemoveProcess`),
+        id:CMDef.genEocID(`${charName}_RemoveProcess`),
         effect:[
             {run_eocs:"CNPC_EOC_CnpcDeathProcess"}
         ],

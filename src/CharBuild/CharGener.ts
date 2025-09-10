@@ -20,7 +20,7 @@ export async function createCharGener(dm:CDataManager,charName:string) {
             type:"effect_on_conditions",
             description:`生成一个 ${displayName}`,
             menu_text: `生成一个 ${displayName}`,
-            effect_on_conditions:[CMDef.genEOCID(spawnerId)],
+            effect_on_conditions:[CMDef.genEocID(spawnerId)],
         },
         weight:1,
         volume:1,
@@ -30,7 +30,7 @@ export async function createCharGener(dm:CDataManager,charName:string) {
     const charSpawnerEoc: Eoc = {
         type: "effect_on_condition",
         eoc_type:"ACTIVATION",
-        id: CMDef.genEOCID(spawnerId),
+        id: CMDef.genEocID(spawnerId),
         effect: [
             //{ u_consume_item: CMDef.genGenericID(spawnerId), count: 1 },
             {
@@ -48,7 +48,7 @@ export async function createCharGener(dm:CDataManager,charName:string) {
     const charCardEoc: Eoc = {
         type: "effect_on_condition",
         eoc_type:"ACTIVATION",
-        id: CMDef.genEOCID(`${charName}_Card_Eoc`),
+        id: CMDef.genEocID(`${charName}_Card_Eoc`),
         effect: [
             {u_add_var:cardcdvar,time:true},
             {

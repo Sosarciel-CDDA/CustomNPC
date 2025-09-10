@@ -220,7 +220,7 @@ export async function createCharSkill(dm:CDataManager,charName:string){
                 }
                 const effect:EocEffect = {
                     run_eocs:{
-                        id:CMDef.genEOCID(`${charName}_${audioObj.id}_Chance`),
+                        id:CMDef.genEocID(`${charName}_${audioObj.id}_Chance`),
                         eoc_type:"ACTIVATION",
                         condition:{and:[
                             {one_in_chance:audioObj.one_in_chance??1},
@@ -390,10 +390,10 @@ function parseSpellNumObj(spell:Spell,field:keyof Spell){
 }
 
 function genCastEocID(charName:string,spell:Spell,ccuid:string):EocID{
-    return CMDef.genEOCID(`${charName}_Cast${spell.id}_${ccuid}`);
+    return CMDef.genEocID(`${charName}_Cast${spell.id}_${ccuid}`);
 }
 function genTrueEocID(charName:string,spell:Spell,ccuid:string):EocID{
-    return CMDef.genEOCID(`${charName}_${spell.id}TrueEoc_${ccuid}`)
+    return CMDef.genEocID(`${charName}_${spell.id}TrueEoc_${ccuid}`)
 }
 
 
@@ -469,7 +469,7 @@ async function filter_randomProc(dm:CDataManager,charName:string,baseSkillData:B
 
     //创建记录坐标Eoc
     const locEoc:Eoc={
-        id:CMDef.genEOCID(`${spell.id}_RecordLoc`),
+        id:CMDef.genEocID(`${spell.id}_RecordLoc`),
         type:"effect_on_condition",
         eoc_type:"ACTIVATION",
         effect:[
@@ -509,7 +509,7 @@ async function filter_randomProc(dm:CDataManager,charName:string,baseSkillData:B
     //创建释放索敌法术的eoc
     const castSelEoc:Eoc = {
         type:"effect_on_condition",
-        id:CMDef.genEOCID(`Cast${filterTargetSpell.id}`),
+        id:CMDef.genEocID(`Cast${filterTargetSpell.id}`),
         eoc_type:"ACTIVATION",
         effect:[
             {u_cast_spell:{id:filterTargetSpell.id,once_in:one_in_chance,}},

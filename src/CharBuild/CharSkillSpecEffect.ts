@@ -99,7 +99,7 @@ function processAddEffect(dm:CDataManager,charName:string,baseSkillData:SpecSkil
 
     const addEoc:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(mainid),
+        id:CMDef.genEocID(mainid),
         eoc_type:"ACTIVATION",
         effect:[
             spec.is_stack==true
@@ -141,7 +141,7 @@ function processRunEoc(dm:CDataManager,charName:string,baseSkillData:SpecSkillCa
 
     const runEoc:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(mainid),
+        id:CMDef.genEocID(mainid),
         eoc_type:"ACTIVATION",
         effect:[]
     }
@@ -149,7 +149,7 @@ function processRunEoc(dm:CDataManager,charName:string,baseSkillData:SpecSkillCa
         runEoc.effect?.push({run_eocs:spec.eoc});
     if(spec.effect!=undefined){
         let inline:InlineEoc={
-            id:CMDef.genEOCID(`${mainid}_inline`),
+            id:CMDef.genEocID(`${mainid}_inline`),
             eoc_type:"ACTIVATION",
             effect:spec.effect,
         }
@@ -254,7 +254,7 @@ function processAudio(dm:CDataManager,charName:string,baseSkillData:SpecSkillCas
             }
             const effect:EocEffect = {
                 run_eocs:{
-                    id:CMDef.genEOCID(`${charName}_${audioObj.id}_Chance`),
+                    id:CMDef.genEocID(`${charName}_${audioObj.id}_Chance`),
                     eoc_type:"ACTIVATION",
                     condition:{and:[
                         {one_in_chance:audioObj.one_in_chance??1},
@@ -272,7 +272,7 @@ function processAudio(dm:CDataManager,charName:string,baseSkillData:SpecSkillCas
 
     const addEoc:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(mainid),
+        id:CMDef.genEocID(mainid),
         eoc_type:"ACTIVATION",
         effect:[...procAudio(audio)]
     }

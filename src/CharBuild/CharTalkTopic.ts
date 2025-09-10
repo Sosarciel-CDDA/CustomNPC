@@ -62,7 +62,7 @@ async function createUpgResp(dm:CDataManager,charName:string){
     //初始化变量Eoc
     const InitUpgField:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(`${charName}_InitFieldVar`),
+        id:CMDef.genEocID(`${charName}_InitFieldVar`),
         eoc_type:"ACTIVATION",
         effect:[]
     }
@@ -115,7 +115,7 @@ async function createUpgResp(dm:CDataManager,charName:string){
                 ]}
                 upgSubResCondList.push(cond)
                 //升级EocId
-                const upgEocId = CMDef.genEOCID(`${fieldUid}_UpgradeEoc_${index}`);
+                const upgEocId = CMDef.genEocID(`${fieldUid}_UpgradeEoc_${index}`);
                 /**使用材料 */
                 const charUpEoc:Eoc={
                     type:"effect_on_condition",
@@ -164,7 +164,7 @@ async function createUpgResp(dm:CDataManager,charName:string){
             //创建变异EOC
             const mutEoc:Eoc = {
                 type:"effect_on_condition",
-                id:CMDef.genEOCID(`${field}_${mut.id}_${mut.lvl}`),
+                id:CMDef.genEocID(`${field}_${mut.id}_${mut.lvl}`),
                 eoc_type:"ACTIVATION",
                 effect:[
                     {u_add_trait:mut.id}
@@ -257,7 +257,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
     //初始化状态Eoc
     const InitWeapon:Eoc={
         type:"effect_on_condition",
-        id:CMDef.genEOCID(`${charName}_InitWeapon`),
+        id:CMDef.genEocID(`${charName}_InitWeapon`),
         eoc_type:"ACTIVATION",
         effect:[]
     }
@@ -266,7 +266,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
     /**丢掉其他武器 */
     //const dropOtherWeapon:Eoc={
     //    type:"effect_on_condition",
-    //    id:CMDef.genEOCID(`${charName}_DropOtherWeapon`),
+    //    id:CMDef.genEocID(`${charName}_DropOtherWeapon`),
     //    condition:{and:[
     //        "u_can_drop_weapon",
     //        {not:{u_has_wielded_with_flag: baseWeaponFlag.id}}
@@ -274,7 +274,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
     //    effect:[
     //        {u_location_variable:{global_val:"tmp_loc"}},
     //        {run_eoc_with:{
-    //            id:CMDef.genEOCID(`${charName}_DropOtherWeapon_Sub`),
+    //            id:CMDef.genEocID(`${charName}_DropOtherWeapon_Sub`),
     //            eoc_type:"ACTIVATION",
     //            effect:["drop_weapon"]
     //        },beta_loc:{"global_val":"tmp_loc"}} //把自己设为betaloc防止报错
@@ -355,7 +355,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
             const giveWeapon:Eoc={
                 type:"effect_on_condition",
                 eoc_type:"ACTIVATION",
-                id:CMDef.genEOCID(`${charName}_GiveWeapon_${item.id}`),
+                id:CMDef.genEocID(`${charName}_GiveWeapon_${item.id}`),
                 condition:{and:[...giveCond]},
                 effect:[{u_spawn_item:item.id}]
             }
@@ -365,7 +365,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
             weaponData.push(giveWeapon)
 
             /**如果禁用则删除 */
-            const rmweocid = CMDef.genEOCID(`${charName}_RemoveWeapon_${item.id}`);
+            const rmweocid = CMDef.genEocID(`${charName}_RemoveWeapon_${item.id}`);
             const removeWeapon:Eoc={
                 type:"effect_on_condition",
                 eoc_type:"ACTIVATION",
@@ -387,7 +387,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
             //开关eoc
             const eoc:Eoc={
                 type:"effect_on_condition",
-                id:CMDef.genEOCID(`${genable}_switch`),
+                id:CMDef.genEocID(`${genable}_switch`),
                 eoc_type:"ACTIVATION",
                 effect:[
                     {math:[genable,"=","0"]},
@@ -423,7 +423,7 @@ async function createWeaponResp(dm:CDataManager,charName:string){
         /**默认启用第一个武器 */
         const DefEnableWeapon:Eoc={
             type:"effect_on_condition",
-            id:CMDef.genEOCID(`${charName}_DefEnableWeapon`),
+            id:CMDef.genEocID(`${charName}_DefEnableWeapon`),
             eoc_type:"ACTIVATION",
             effect:[
                 {math:[uEnableList[0],"=","1"]},

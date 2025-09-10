@@ -3,7 +3,7 @@ import * as  fs from 'fs';
 import { JArray, JObject, JToken, UtilFT, UtilFunc } from '@zwa73/utils';
 import { StaticDataMap } from './StaticData';
 import { AnimType, AnimTypeList, formatAnimName } from './AnimTool';
-import { genAmmuTypeID, genAmmoID, genArmorID, genEOCID, genEnchantmentID as genEnchantmentID, genFlagID, genGunID, genItemGroupID, genMutationID, genNpcClassID, genNpcInstanceID, genTalkTopicID } from './ModDefine';
+import { genAmmuTypeID, genAmmoID, genArmorID, genEocID, genEnchantmentID as genEnchantmentID, genFlagID, genGunID, genItemGroupID, genMutationID, genNpcClassID, genNpcInstanceID, genTalkTopicID } from './ModDefine';
 import { Eoc,MutationID,ItemGroupID,NpcClassID,NpcInstanceID,FlagID,AmmunitionTypeID,AmmoID, ArmorID, GunID, StatusSimple, EnchantmentID, Gun, Generic, GenericID, EnchArmorValType, EnchGenericValType, BoolObj, Spell, SoundEffect, SoundEffectVariantID, SoundEffectID, EocID, EocEffect, AnyCddaJsonList, Monster, ItemGroup, ItemGroupEntrieQuick, AnyCddaJson, AnyItemID } from 'CddaJsonFormat';
 import { CharSkill } from './CharSkill';
 import { SkillID } from './CddaJsonFormat/Skill';
@@ -499,7 +499,7 @@ export class DataManager{
                     const eventEoc:Eoc = {
                         type:"effect_on_condition",
                         eoc_type:"ACTIVATION",
-                        id:genEOCID(`${charName}_${etype}`),
+                        id:genEocID(`${charName}_${etype}`),
                         effect:[...charEvent.map(event=>event.effect)],
                         condition:CharEvemtTypeList.includes(etype as CharEventType)
                             ? {u_has_trait:charData.defineData.baseMutID}
@@ -529,7 +529,7 @@ export class DataManager{
             const globalEoc:Eoc={
                 type:"effect_on_condition",
                 eoc_type:"ACTIVATION",
-                id:genEOCID(etype),
+                id:genEocID(etype),
                 effect:[...globalEvents.map(event=>event.effect)],
             }
             eventEocs.push(globalEoc);

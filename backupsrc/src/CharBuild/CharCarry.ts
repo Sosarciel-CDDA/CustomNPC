@@ -65,12 +65,12 @@ export async function createCharCarry(dm:CDataManager,charName:string){
             const rechargeEoc:Eoc={
                 type:"effect_on_condition",
                 eoc_type:"ACTIVATION",
-                id:CMDef.genEOCID(`${charName}_Recharge_${itemID}`),
+                id:CMDef.genEocID(`${charName}_Recharge_${itemID}`),
                 effect:[
                     {math:[timerVar,"+=","1"]},
                     {run_eocs:{
                         eoc_type:"ACTIVATION",
-                        id:CMDef.genEOCID(`${charName}_Recharge_${itemID}_Sub`),
+                        id:CMDef.genEocID(`${charName}_Recharge_${itemID}_Sub`),
                         effect:[
                             {u_spawn_item:itemID,count:recharge_count??1},
                             {math:[timerVar,"=","0"]}

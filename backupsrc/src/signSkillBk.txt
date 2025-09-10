@@ -1,5 +1,5 @@
 import { JArray } from "@zwa73/utils";
-import { ControlSpellFlags, genEOCID } from ".";
+import { ControlSpellFlags, genEocID } from ".";
 import { BoolObj, Eoc, EocEffect, NumObj } from "./CddaJsonFormat/Eoc";
 import { Spell, SpellID } from "./CddaJsonFormat/Spell";
 import { CharEventType, DataManager } from "./DataManager";
@@ -80,7 +80,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
 
                 const effect:EocEffect = {
                     run_eocs:{
-                        id:genEOCID(audioObj.id+"_Chance"),
+                        id:genEocID(audioObj.id+"_Chance"),
                         eoc_type:"ACTIVATION",
                         condition:{one_in_chance:audioObj.one_in_chance||1},
                         effect:[
@@ -125,7 +125,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
         //创建施法EOC
         const castEoc:Eoc={
             type:"effect_on_condition",
-            id:genEOCID(`Cast${spell.id}`),
+            id:genEocID(`Cast${spell.id}`),
             eoc_type:"ACTIVATION",
             effect:[
                 ...dmgtmp,
@@ -140,7 +140,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
                     },
                     targeted: selTargetSpell? true:false,
                     true_eocs:{
-                        id:genEOCID(`${spell.id}TrueEoc`),
+                        id:genEocID(`${spell.id}TrueEoc`),
                         effect:[
                             {math:[`${Alpha}_val('mana')`,"-=",costMathStr]},
                             ...TEffect
@@ -164,7 +164,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
         if(cooldown!=null){
             const CDEoc:Eoc={
                 type:"effect_on_condition",
-                id:genEOCID(`${spell.id}_Cooldown`),
+                id:genEocID(`${spell.id}_Cooldown`),
                 effect:[
                     {math:[cdValName,"-=","1"]}
                 ],

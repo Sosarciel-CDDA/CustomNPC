@@ -426,7 +426,7 @@ export class CDataManager extends DataManager{
                     const eventEoc:Eoc = {
                         type:"effect_on_condition",
                         eoc_type:"ACTIVATION",
-                        id:CMDef.genEOCID(`${charName}_${etype}`),
+                        id:CMDef.genEocID(`${charName}_${etype}`),
                         effect:[...charEventList],
                         condition:{u_has_trait:charData.defineData.baseMutID}
                     }
@@ -455,7 +455,7 @@ export class CDataManager extends DataManager{
             const globalEoc:Eoc={
                 type:"effect_on_condition",
                 eoc_type:"ACTIVATION",
-                id:CMDef.genEOCID(etype),
+                id:CMDef.genEocID(etype),
                 effect:[...globalEvents],
             }
             eventEocs.push(globalEoc);

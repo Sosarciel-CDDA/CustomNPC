@@ -1,5 +1,5 @@
 import { JArray, JObject, UtilFunc } from "@zwa73/utils";
-import { CON_SPELL_FLAG, genEOCID } from ".";
+import { CON_SPELL_FLAG, genEocID } from ".";
 import { BoolObj, Eoc, EocEffect } from "./CddaJsonFormat/Eoc";
 import { Spell, SpellID } from "./CddaJsonFormat/Spell";
 import { DataManager } from "./DataManager";
@@ -95,7 +95,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
     //全局冷却事件
     const GCDEoc:Eoc={
         type:"effect_on_condition",
-        id:genEOCID(`${charName}_CoCooldown`),
+        id:genEocID(`${charName}_CoCooldown`),
         effect:[
             {math:[gcdValName,"-=","1"]}
         ],
@@ -141,7 +141,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
 
                 const effect:EocEffect = {
                     run_eocs:{
-                        id:genEOCID(`${charName}_${audioObj.id}_Chance`),
+                        id:genEocID(`${charName}_${audioObj.id}_Chance`),
                         eoc_type:"ACTIVATION",
                         condition:{one_in_chance:audioObj.one_in_chance??1},
                         effect:[
@@ -191,7 +191,7 @@ export async function createCharSkill(dm:DataManager,charName:string){
         if(cooldown!=null){
             const CDEoc:Eoc={
                 type:"effect_on_condition",
-                id:genEOCID(`${charName}_${spell.id}_Cooldown`),
+                id:genEocID(`${charName}_${spell.id}_Cooldown`),
                 effect:[
                     {math:[cdValName,"-=","1"]}
                 ],
@@ -263,7 +263,7 @@ function spell_targetProc(dm:DataManager,charName:string,baseSkillData:BaseSkill
     //创建施法EOC
     const castEoc:Eoc={
         type:"effect_on_condition",
-        id:genEOCID(`${charName}_Cast${spell.id}_${ccuid}`),
+        id:genEocID(`${charName}_Cast${spell.id}_${ccuid}`),
         eoc_type:"ACTIVATION",
         effect:[
             {
@@ -273,7 +273,7 @@ function spell_targetProc(dm:DataManager,charName:string,baseSkillData:BaseSkill
                 },
                 targeted: true,
                 true_eocs:{
-                    id:genEOCID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
+                    id:genEocID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
                     effect:[...TEffect],
                     eoc_type:"ACTIVATION",
                 }
@@ -301,7 +301,7 @@ function randomProc(dm:DataManager,charName:string,baseSkillData:BaseSkillCastDa
     //创建施法EOC
     const castEoc:Eoc={
         type:"effect_on_condition",
-        id:genEOCID(`${charName}_Cast${spell.id}_${ccuid}`),
+        id:genEocID(`${charName}_Cast${spell.id}_${ccuid}`),
         eoc_type:"ACTIVATION",
         effect:[
             {
@@ -311,7 +311,7 @@ function randomProc(dm:DataManager,charName:string,baseSkillData:BaseSkillCastDa
                 },
                 targeted: false,
                 true_eocs:{
-                    id:genEOCID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
+                    id:genEocID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
                     effect:[...TEffect],
                     eoc_type:"ACTIVATION",
                 }
@@ -361,7 +361,7 @@ function reverse_hitProc(dm:DataManager,charName:string,baseSkillData:BaseSkillC
     //创建翻转的施法EOC
     const castEoc:Eoc={
         type:"effect_on_condition",
-        id:genEOCID(`${charName}_Cast${spell.id}_${ccuid}`),
+        id:genEocID(`${charName}_Cast${spell.id}_${ccuid}`),
         eoc_type:"ACTIVATION",
         effect:[
             {math: [dmgvar , `=` , dmgstr]},//预先计算伤害
@@ -372,7 +372,7 @@ function reverse_hitProc(dm:DataManager,charName:string,baseSkillData:BaseSkillC
                     hit_self:true              //如果是翻转事件则需命中自身
                 },
                 true_eocs:{
-                    id:genEOCID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
+                    id:genEocID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
                     effect:[...TEffect],
                     eoc_type:"ACTIVATION",
                 }
@@ -417,7 +417,7 @@ function direct_hitProc(dm:DataManager,charName:string,baseSkillData:BaseSkillCa
     //创建翻转的施法EOC
     const castEoc:Eoc={
         type:"effect_on_condition",
-        id:genEOCID(`${charName}_Cast${spell.id}_${ccuid}`),
+        id:genEocID(`${charName}_Cast${spell.id}_${ccuid}`),
         eoc_type:"ACTIVATION",
         effect:[
             {math: [dmgvar , `=` , dmgstr]},//预先计算伤害
@@ -428,7 +428,7 @@ function direct_hitProc(dm:DataManager,charName:string,baseSkillData:BaseSkillCa
                     hit_self:true              //如果是翻转事件则需命中自身
                 },
                 true_eocs:{
-                    id:genEOCID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
+                    id:genEocID(`${charName}_${spell.id}TrueEoc_${ccuid}`),
                     effect:[...TEffect],
                     eoc_type:"ACTIVATION",
                 }

@@ -19,7 +19,7 @@ function removeOtherAnimEoc(charName:string,baseData:CharDefineData,animType:Ani
     const eoc:Eoc={
         type:"effect_on_condition",
         eoc_type: "ACTIVATION",
-        id:CMDef.genEOCID(charName+"_RemoveOtherAnimEoc_"+animType),
+        id:CMDef.genEocID(charName+"_RemoveOtherAnimEoc_"+animType),
         effect:[
             ...otherAnim.map(otherAnimType=>({
                     u_lose_trait:baseData.animData[otherAnimType].mutID
@@ -35,7 +35,7 @@ function changeAnimEoc(charName:string,baseData:CharDefineData,animType:AnimType
     const eoc:Eoc={
         type:"effect_on_condition",
         eoc_type: "ACTIVATION",
-        id:CMDef.genEOCID(charName+"_ChangeAnimEoc_"+animType),
+        id:CMDef.genEocID(charName+"_ChangeAnimEoc_"+animType),
         effect:[
             {"run_eocs":removeEoc.id},
             {"u_add_trait": baseData.animData[animType].mutID },
