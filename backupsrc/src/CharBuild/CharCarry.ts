@@ -1,4 +1,4 @@
-import { Armor, Enchantment, Eoc, Flag, Gun, ItemGroup, BoolObj } from "@sosarciel-cdda/schema";
+import { Armor, Enchantment, Eoc, Flag, Gun, ItemGroup, BoolExpr } from "@sosarciel-cdda/schema";
 import { CDataManager } from "../DataManager";
 import { CMDef } from "CMDefine";
 import { getTalkerFieldVarID, parseEnchStatTable } from "./CharConfig";
@@ -52,7 +52,7 @@ export async function createCharCarry(dm:CDataManager,charName:string){
         }
         //自动回复Eoc
         if(recharge!=undefined && recharge>=1){
-            const cond: (BoolObj)[] = [
+            const cond: (BoolExpr)[] = [
                 {not:{u_has_items:{item:itemID,count:count??1}}}
             ];
             if(require_field){
