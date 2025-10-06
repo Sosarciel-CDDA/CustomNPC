@@ -18,7 +18,7 @@ import { CMDef } from "CMDefine";
  * @param cooldown 触发间隔
  */
 export function genTriggerEffect(dm:CDataManager,effect:Effect,hook:CharHook,mode:"/2"|"-1"|"none",
-    eocEffects:EocEffect[],duration: (Time),condition?: (BoolObj),cooldown: (Time)=0){
+    eocEffects:EocEffect[],duration: (Time|"PERMANENT"),condition?: (BoolObj),cooldown: (Time)=0){
     if(typeof cooldown == "number") cooldown = `${cooldown} s`;
     effect.int_decay_remove = true;
 
