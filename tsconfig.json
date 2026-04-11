@@ -8,7 +8,6 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "declaration": true,
-        "baseUrl": ".",
         "paths": {
             "CnpcEvent"         : ["./src/CnpcEvent"],
             "CharBuild"         : ["./src/CharBuild"],
